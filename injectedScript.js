@@ -58,7 +58,7 @@ function extractStatsFromShadowbox() {
             accum[th.innerText] = td.innerText;
             return accum;
         }, {name: username});
-        console.log("Data:", gameData);
+        console.log(gameData);
     }
     Shadowbox.close();
     setTimeout(getStuff, WAIT_DELAY);
