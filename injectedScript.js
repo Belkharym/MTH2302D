@@ -12,6 +12,11 @@ function waitTill(condObj, callback) {
     }
 }
 
+function haveNextPage() {
+    var nextButton = toArray(document.querySelectorAll(".leaderboard_table_page_list a")).slice(-1)[0];
+    return nextButton.onclick != null;
+}
+
 function nextPage() {
     toArray(document.querySelectorAll(".leaderboard_table_page_list a")).slice(-1)[0].click();
     setTimeout(function() {
@@ -25,7 +30,8 @@ var entries = toArray(document.querySelectorAll(".leaderboard_main_table"));
 
 function getStuff() {
 
-    if (entries.length === 0) {
+    if (entries.length === 0 && haveNextPage()) {
+        console.log("---------next page---------");
         setTimeout(nextPage, 2 * WAIT_DELAY);
     }
     else {
