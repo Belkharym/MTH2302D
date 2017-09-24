@@ -17,6 +17,20 @@ function haveNextPage() {
     return nextButton.onclick != null;
 }
 
+function logData(obj) {
+    str = "";
+    for (attr in obj) {
+        if (attr != "") {
+            str += obj[attr] + ",";
+        }
+        else {
+            break;
+        }
+    }
+    str = str.substring(0, str.length - 1);
+    console.log(str);
+}
+
 function nextPage() {
     toArray(document.querySelectorAll(".leaderboard_table_page_list a")).slice(-1)[0].click();
     setTimeout(function() {
@@ -58,7 +72,7 @@ function extractStatsFromShadowbox() {
             accum[th.innerText] = td.innerText;
             return accum;
         }, {name: username});
-        console.log(gameData);
+        logData(gameData);
     }
     Shadowbox.close();
     setTimeout(getStuff, WAIT_DELAY);
