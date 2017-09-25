@@ -1,4 +1,4 @@
-var WAIT_DELAY = 1000;
+var WAIT_DELAY = 2000;
 var username = "CHUCK_NORRIS";
 
 function toArray(nodeList) { return Array.prototype.slice.call(nodeList); }
