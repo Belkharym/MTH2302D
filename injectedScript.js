@@ -1,4 +1,4 @@
-var WAIT_DELAY = 2000;
+var WAIT_DELAY = 3000;
 var username = "CHUCK_NORRIS";
 
 function toArray(nodeList) { return Array.prototype.slice.call(nodeList); }
@@ -45,7 +45,7 @@ var entries = toArray(document.querySelectorAll(".leaderboard_main_table"));
 function getStuff() {
 
     if (entries.length === 0 && haveNextPage()) {
-        console.log("---------next page---------");
+        console.debug("---------next page---------");
         setTimeout(nextPage, 2 * WAIT_DELAY);
     }
     else {
