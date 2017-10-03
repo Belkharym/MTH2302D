@@ -19,6 +19,13 @@ do
 
 done
 
-cat "${OUT_DATA}"
+cat "${OUT_DATA}" | awk '
+BEGIN { i=1 }
+{
+    print i","$0
+    i++
+} ' > "${OUT_DATA}.tmp"
 
+cat "${OUT_DATA}.tmp" > "${OUT_DATA}"
+rm "${OUT_DATA}.tmp"
 
