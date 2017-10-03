@@ -1,0 +1,20 @@
+#!/bin/bash
+
+WD=$(pwd)
+DONNEES="${WD}/données"
+
+FILES=$(find "$DONNEES" -type f)
+
+data=""
+for file in $FILES
+do
+
+    data=${data}$(cat "$file" | awk -v fileName=$(basename "$file" .csv) ' {
+        if ($0 != "") {
+            print gensub(/([^,]*,)(.*)/, "\\1"fileName",\\2", "g", $0)
+        }
+    } ')$'\n'
+
+done
+
+echo "$data"
