@@ -1,5 +1,6 @@
 # CHARGER CSV
 
+setwd("~/Git/Git_Projects/MTH2302D/TD07")
 coton <- read.csv("Coton.csv", header=TRUE, sep=";", dec=",", col.names=c("PERCENT"))
 
 # HISTOGRAMME
