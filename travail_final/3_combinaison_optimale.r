@@ -1,11 +1,13 @@
 #
 # QUESTIONS POSÉES AU TRAVAIL 1:
 # ------------------------------
-# 1) "Y a-t-il une corrélation entre la fréquence des tétriminos et le score obtenu par le joueur?
-# Jusqu’à quel point? Autrement dit : les joueurs rapides font-ils plus de points?"
 #
-# 2) "À l’aide de la corrélation précédente, nous souhaiterions déterminer la fréquence optimale de
-# tétriminos pour optimiser le score."
+# 3) "Quelle combinaison de lignes permet d’optimiser le score? Plus précisément, nous souhaitons
+# comparer le rapport (nombre de lignes complétées par une combinaison / nombre de lignes
+# total) au score afin de déterminer la combinaison à privilégier. Les tetris sont les complétions
+# de lignes qui donnent le plus de points puisqu’elles demandent de compléter quatre lignes en un
+# coup, mais elles demandent au joueur de prendre le risque de laisser sa pile monter et de perdre
+# la partie."
 
 #########################################
 # VALEURS DE CONFIGURATION DU PROGRAMME #
@@ -110,3 +112,11 @@ fit_simple = performAndPlotRegression(data = data, x_column_name = "proportion_s
 fit_double = performAndPlotRegression(data = data, x_column_name = "proportion_doubles", main_title = "Influence des \"doubles\" sur le score", xlab = "Proportion de doubles", ylab = "Score")
 fit_triple = performAndPlotRegression(data = data, x_column_name = "proportion_triples", main_title = "Influence des \"triples\" sur le score", xlab = "Proportion de triples", ylab = "Score")
 fit_tetris = performAndPlotRegression(data = data, x_column_name = "proportion_tetris" , main_title = "Influence des \"tetris\" sur le score" , xlab = "Proportion de tetris" , ylab = "Score")
+
+correlations = data.frame(
+  correlation_simples = cor(x = data$proportion_simples, y = data$score),
+  correlation_doubles = cor(x = data$proportion_doubles, y = data$score),
+  correlation_triples = cor(x = data$proportion_triples, y = data$score),
+  correlation_tetris  = cor(x = data$proportion_tetris , y = data$score)
+)
+print(correlations)
