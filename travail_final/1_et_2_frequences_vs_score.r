@@ -1,9 +1,11 @@
-
 #
-# QUESTION POSÉE AU TRAVAIL 1:
-# "Y a-t-il une corrélation entre la fréquence des tétriminos et le score obtenu par le joueur?
+# QUESTIONS POSÉES AU TRAVAIL 1:
+# ------------------------------
+# 1) "Y a-t-il une corrélation entre la fréquence des tétriminos et le score obtenu par le joueur?
 # Jusqu’à quel point? Autrement dit : les joueurs rapides font-ils plus de points?"
 #
+# 2) "À l’aide de la corrélation précédente, nous souhaiterions déterminer la fréquence optimale de
+# tétriminos pour optimiser le score."
 
 #########################################
 # VALEURS DE CONFIGURATION DU PROGRAMME #
