@@ -97,7 +97,7 @@ predictions =
     fit,
     newdata = data.frame(fréquence_tétriminos = x_to_evaluate_fit_at),
     interval='confidence',
-    level=0.95
+    level=TRUST_LEVEL
   ))
 predictions["fréquence_tétriminos"] = x_to_evaluate_fit_at
 
