@@ -69,7 +69,7 @@ data = read.csv(
 );
 data["temps"] = apply(data, 1, FUN = function(row) { timeInSeconds(row["temps"]) }) # Transformer les temps en numériques
 data = data[data$tétriminos > TETRIMINOS_MINUMUMS,] # Supprimer les observations dont le nombre de tétriminos est trop faible
-data = data[order(data$fréquence_tétriminos),] # Trier par score
+data = data[order(data$fréquence_tétriminos),] # Trier par fréquence des tétriminos
 
 # Vue initiale sur la question
 
