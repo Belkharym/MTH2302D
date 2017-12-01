@@ -7,7 +7,7 @@
 # VALEURS DE CONFIGURATION DU PROGRAMME #
 #########################################
 
-TETRIMINOS_MINUMUMS = 100 # Nombre minimal de tétriminos pour que la partie soit considérée valide
+TEMPS_MINUMUMS = 90 # temps minimal de jeu pour que la partie soit considérée valide
 TRUST_LEVEL = 0.95
 POLYNOMIAL_DEGREE = 1
 
@@ -64,7 +64,7 @@ data = read.csv(
   col.names = c("observation", "joueur", "jour", "score", "niveau", "lignes", "temps", "fréquence_lignes", "tétriminos", "fréquence_tétriminos", "simples", "doubles", "triples", "tetris")
 );
 data["temps"] = apply(data, 1, FUN = function(row) { timeInSeconds(row["temps"]) }) # Transformer les temps en numériques
-#data = data[data$tétriminos > TETRIMINOS_MINUMUMS,] # Supprimer les observations dont le nombre de tétriminos est trop faible
+data = data[data$temps > TEMPS_MINUMUMS,] # Supprimer les observations dont le nombre de tétriminos est trop faible
 data = data[order(data$temps),] # Trier par fréquence des tétriminos
 
 # Vue initiale sur la question
@@ -105,3 +105,6 @@ lines(x_to_evaluate_fit_at, predictions[, "upr"], col='red',   lwd=1)
 
 correlation_coefficent = cor(x = data$temps, y = data$niveau)
 print(correlation_coefficent)
+
+R_2 = correlation_coefficent ** 2
+print(R_2)
